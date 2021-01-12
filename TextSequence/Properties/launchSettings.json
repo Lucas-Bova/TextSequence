@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TextSequence": {
+      "commandName": "Project",
+      "commandLineArgs": "LongTest.txt 5 8 10"
+    }
+  }
+}
