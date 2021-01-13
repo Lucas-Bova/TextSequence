@@ -33,6 +33,7 @@ namespace TextSequence
                     Logger.Info("All arguments processed.");
                     Logger.Info("Starting search.");
                     var jsonResult = GetStream(control.Path).FindSequences(control.Floor, control.Ceiling, control.Limit);
+                    PrintJson(jsonResult);
                     Console.WriteLine(jsonResult);
                     Logger.Info("Operation complete");
                     return 0;
@@ -41,6 +42,17 @@ namespace TextSequence
                 {
                     Logger.Error(e.Message);
                     return -1;
+                }
+            }
+        }
+
+        private static void PrintJson(string json, string path = "sequenceResult.txt")
+        {
+            using (var writer = new StreamWriter(path))
+            {
+                foreach(var line in json)
+                {
+                    writer.Write(line);
                 }
             }
         }
